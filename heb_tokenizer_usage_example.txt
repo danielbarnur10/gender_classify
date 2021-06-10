@@ -1,0 +1,17 @@
+import hebrew_tokenizer as ht
+hebrew_text = "אתמול, 8.6.2018, בשעה 17:00 הלכתי עם אמא למכולת"
+tokens = ht.tokenize(hebrew_text)  # tokenize returns a generator!
+for grp, token, token_num, (start_index, end_index) in tokens:
+    print('{}, {}'.format(grp, token))
+
+תוצאות:
+>>> HEBREW, 'אתמול'
+>>> PUNCTUATION, ',' 
+>>> DATE, '8.6.2018'
+>>> PUNCTUATION, ',' 
+>>> HEBREW, 'בשעה'
+>>> HOUR, '17:00'
+>>> HEBREW, 'הלכתי'
+>>> HEBREW, 'עם'
+>>> HEBREW, 'אמא'
+>>> HEBREW, 'למכולת'
